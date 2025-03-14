@@ -15,7 +15,21 @@
 使用`关系代数`完成下面的查询：
 
 1. 找到位于`成都`市的支行的名字。
+π branch_name (σ branch_city= ′成都 ′ (branch))
+------------------
+SELECT branch_name
+FROM branch
+WHERE branch_city = '成都'
+   
 2. 找到在`杨柳`支行有贷款（`loan`）的借款人（`borrower`）的ID。
+π ID(σ branch_name= ′杨柳 ′(loan)⋈borrower)
+--------------------
+SELECT borrower.ID
+FROM loan
+JOIN borrower ON loan.loan_number = borrower.loan_number
+WHERE loan.branch_name = '杨柳'
 
 ## 题目二（3分）
 假设数据库中存储用户名和密码的关系模式是 users(name, pswd, gender)，请结合关系代数简述实现`用户登录`逻辑的思路。
+π name (σ name= ′输入的用户名 ′∧pswd= ′输入的密码 ′(users))
+先输入用户名和密码，再在users表中查找是否存在name和pswd与输入值匹配的记录，如果存在，则登录成功；否则登录失败。
