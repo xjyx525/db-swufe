@@ -11,7 +11,8 @@ CREATE TABLE users (
     pswd VARCHAR(50) NOT NULL,
     gender CHAR(1)
 );
-![image](https://github.com/user-attachments/assets/7e01ed1c-e1cd-46fd-97d1-16a54c84f539)
+![image](https://github.com/user-attachments/assets/775ae8cd-416f-4d62-92ed-78cd208a9380)
+
 
 ## 题目二（3分+1分）
 1. 新建一个`university`数据库，并执行`largeRelationsInsertFile.sql`，导入数据。
@@ -26,11 +27,13 @@ WHERE T.salary > S.salary AND S.dept_name = 'History';
 
 ## 题目三（2分+2分）
 1. 通过实验验证PG中`like`是大小写敏感的。
- ![image](https://github.com/user-attachments/assets/f2369ee6-d385-499d-a1b8-574a91263c8f)
 SELECT * FROM test_case_sensitive WHERE text_field LIKE 'S%';
 SELECT * FROM test_case_sensitive WHERE text_field LIKE 's%';
-3. 在`university`数据库中查询所有包含名字`sci`的学院名称（`dept_name`），而不区分大小写。
-![Uploading image.png…]()
+ ![image](https://github.com/user-attachments/assets/f2369ee6-d385-499d-a1b8-574a91263c8f)
+
+2. 在`university`数据库中查询所有包含名字`sci`的学院名称（`dept_name`），而不区分大小写。
 SELECT dept_name
 FROM department
 WHERE dept_name ~* 'sci';
+![image](https://github.com/user-attachments/assets/fe75c31a-186c-4d2f-a2cf-6062a6c73cc9)
+
